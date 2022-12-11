@@ -8,11 +8,11 @@ class Tarjeta extends React.Component {
       <Card >
         <Card.Img variant="top" src={this.props.Imagen}/>
         <Card.Body>
-          <Card.Title style={{textAlign:'center',fontSize:'1.5vw'}}>{this.props.Name}</Card.Title>
-          <Card.Text style={{textAlign:'justify',fontSize:'1vw'}}>
+          <Card.Title style={{textAlign:'center'}}>{this.props.Name}</Card.Title>
+          <Card.Text style={{textAlign:'justify'}}>
             {this.props.Corp}
           </Card.Text>
-          <center><Button variant="outline-success" href='/form' style={{width:'vw',height:'vw',fontSize:'0.9vw'}}>Reservar</Button></center>
+          <center><Button variant="outline-success" href='/form' style={{width:'vw',height:'vw'}}>Reservar</Button></center>
         </Card.Body>
       </Card>
       );

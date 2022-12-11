@@ -1,12 +1,9 @@
 import React from 'react';
 
-import Comments from "../comments/Comments";
 import Tarjeta from './card_button';
-import News from '../components/news';
 import UncontrolledExample from '../components/publicidad';
 
 import imagenes from './mocking/imagenes';
-import Testimonial from '../Testimonial/Testimonial';
 
 
 class Home extends React.Component {
@@ -17,7 +14,7 @@ class Home extends React.Component {
             {
               imagenes.map(obj=>{
                 return(
-                  <div className='col-4'>
+                  <div className='col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4'>
                     <center><Tarjeta Name={obj.nombre} Corp={obj.cuerpo} Imagen={obj.imagen}></Tarjeta></center>
                   </div>
                   );
@@ -26,7 +23,7 @@ class Home extends React.Component {
           </div>
               
           <div className='row justify-content-center'style={{margin:'50px'}}>
-            <div className='col align-self-center' >
+            <div className='col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 align-self-center' >
               <UncontrolledExample></UncontrolledExample>
             </div>
           </div>

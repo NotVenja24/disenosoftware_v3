@@ -25,20 +25,20 @@ function Formulario() {
             <div className='row' style={{margin:"20px"}}>
                 <center><h1>Reservar</h1></center>
             </div>
-            <form class="row g-3" style={{display: "flex", flexDirection: "column", alignItems: "center",fontSize:'2vw',magin:'20px'}}>
+            <form class="row g-3" style={{display: "flex", flexDirection: "column", alignItems: "center",margin:'20px'}}>
                 <div class="col-6">
                     <label class="form-label">Nombre completo:</label>
-                    <input type="text" class="form-control" style={{width:'vw',height:'7vw',fontSize:'1.5vw'}} />
+                    <input type="text" class="form-control"  />
                 </div>
 
                 <div class="col-6">
                     <label class="form-label">Rut:</label>
-                    <input type="text" class="form-control" placeholder="11111111-1" style={{width:'vw',height:'7vw',fontSize:'1.5vw'}}/>
+                    <input type="text" class="form-control" placeholder="11111111-1" />
                 </div>
 
                 <div class="col-6">
                     <label class="form-label">Tour:</label>
-                    <select class="form-select" style={{width:'vw',height:'7vw',fontSize:'1.5vw'}}>
+                    <select class="form-select" >
                             {options.map((option) => (
                                 <option value={option.value}>{option.label}</option>
                             ))}
@@ -47,20 +47,20 @@ function Formulario() {
 
                 <div class="col-6">
                     <label class="form-label">Email:</label>
-                    <input type="email" class="form-control" style={{width:'vw',height:'7vw',fontSize:'1.5vw'}}/>
+                    <input type="email" class="form-control" />
                 </div>
 
                 <div class="col-6">
                     <label class="form-label">Teléfono:</label>
-                    <input type="text" class="form-control" placeholder="+56912345678" style={{width:'vw',height:'7vw',fontSize:'1.5vw'}}/>
+                    <input type="text" class="form-control" placeholder="+56912345678"/>
                 </div>
 
                 <div class="col-6">
                     <label class="form-label">Fecha:</label>
-                    <input type="date" class="form-control" setValue={value}onChange={{onChange}} style={{width:'vw',height:'7vw',fontSize:'1.5vw'}}/>
+                    <input type="date" class="form-control" setValue={value}onChange={{onChange}} />
                 </div>
                 <div class="col-12">
-                    <center><Button variant='outline-success' bg='dark' style={{width:'vw',height:'vw',fontSize:'1.5vw'}}>Reservar</Button></center>
+                    <center><Button variant='outline-success' bg='dark' >Reservar</Button></center>
                 </div>        
             </form>
 
