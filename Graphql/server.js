@@ -19,6 +19,20 @@ const typeDefs = gql`
     nombre_viaje: String!
  }
 
+ type Viaje {
+    id:ID!
+    nombre:String!
+    descripción:String!
+    foto:String!
+ }
+
+ type Lugar {
+    id:ID!
+    nombre:String!
+    descripción:String!
+    foto:String!
+ }
+
  type Alert {
     message: String
  }
@@ -28,15 +42,31 @@ const typeDefs = gql`
     nombre_viaje: String!
  }
 
+ input Viajeinput {
+    nombre:String!
+    descripción:String!
+    foto:String!
+ }
+
+ input Lugarinput {
+    nombre:String!
+    descripción:String!
+    foto:String!
+ }
+
  type Query {
    getReservas: [Reserva] 
    getReserva(id: ID!): Reserva
+   getLugares:[Viaje]
+   getViajes:[Lugar]
  }
 
  type Mutation {
     addReserva(input: ReservaInput): Reserva
     updateReserva(id: ID!, input: ReservaInput): Reserva
     deleteReserva(id: ID!): Alert
+    addLugar:(input: Lugarinput)
+    addViaje: (input: Viajeinput)
  }
 `;
 
@@ -49,6 +79,14 @@ const resolvers = {
         async getReserva(obj, { id }) {
             const reservas = await Reserva.findById(id);
             return reservas;
+        },
+        async getLugares(obj) {
+            const lugares = await Lugar.find();
+            return lugares;
+        },
+        async getViajes(obj) {
+            const viajes = await Viaje.find();
+            return viajes;
         }
     },
     Mutation: {
@@ -68,6 +106,16 @@ const resolvers = {
             return {
                 message: "Reserva eliminada"
             }
+        },
+        async addLugar(obj, { input }) {
+            const lugar = new Lugar(input);
+            await lugar.save();
+            return lugar;
+        },
+        async addViaje(obj, { input }) {
+            const viaje = new Viaje(input);
+            await viaje.save();
+            return viaje;
         }
     }
 }

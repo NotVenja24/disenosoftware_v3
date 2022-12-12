@@ -16,7 +16,7 @@ function Nosotros() {
           <center>
             <img
                 className="img-thumbnail rounded"
-                src={require('./Magallanes.jpg')}
+                src="https://res.cloudinary.com/dmdluivvr/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1670802804/Magallanes_mwdxa2.jpg"
                  />
           </center>
         </div>
@@ -27,13 +27,18 @@ function Nosotros() {
         </div>
 
         <div className="row">
-          {equipo.map(obj => {
-            return (
-              <div className='col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
-                <center /><Perfiles Name={obj.nombre} Corp={obj.funcion} Imagen={obj.imagen}></Perfiles>
-              </div>
-             );
-          })}
+            <div className='col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4'>
+              <center /><Perfiles Name="Agustín Soto" Corp="Guía" Imagen="https://res.cloudinary.com/dmdluivvr/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1670808085/Agustin_Soto_ldalmz.jpg"></Perfiles>
+            </div>
+            <div className='col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4'>
+              <center /><Perfiles Name="Hans Bartner" Corp="Gerente" Imagen="https://res.cloudinary.com/dmdluivvr/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1670808070/Hans_Bartnert_mryknm.jpg"></Perfiles>
+            </div>
+            <div className='col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4'>
+              <center /><Perfiles Name="Jose M. Rojas" Corp="Administrador" Imagen="https://res.cloudinary.com/dmdluivvr/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1670808058/Jose_Rojas_ivrkhk.jpg"></Perfiles>
+            </div>
+            <div className='col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4'>
+              <center /><Perfiles Name="Benjamín Rodríguez" Corp="Chofer" Imagen="https://res.cloudinary.com/dmdluivvr/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1670808080/Benjamin_Rodriguez_rqlhbl.jpg"></Perfiles>
+            </div>
         </div>
           
     </div>  
