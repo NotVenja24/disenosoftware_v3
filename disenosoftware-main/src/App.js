@@ -10,29 +10,28 @@ import Tipo_viaje from './components/tipo_viaje';
 import Lugar from './components/lugares';
 import Nosotros from './components/about';
 import ContactForm from './components/contact_form';
+import { useQuery, gql } from '@apollo/client';
 
 // Routes es igual a Switch component en los demás tutoriales
-import { useQuery, gql } from '@apollo/client';
 const GET_RESERVAS = gql`
   query getReservas{
     getReservas{
-      nombre: String!
-      rut: String!
-      tour: String!
-      telefono: String!
-      fecha: String!
+      id
+      fecha
+      nombre_viaje
     }
   }
 `;
 
-/*function MostrarReservas() {
+
+function MostrarReservas() {
   const { loading, error, data } = useQuery(GET_RESERVAS);
   if (loading) return (<p>Loading...</p>);
   if (error) return (<p>Error</p>)
   return data.getReservas.map(({ id, fecha, nombre_viaje }) =>
     <li key={id}>{fecha}</li>
   )
-}*/
+}
 class App extends React.Component {
     render(){
       return (
