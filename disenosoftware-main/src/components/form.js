@@ -105,7 +105,7 @@ function Formulario() {
 
                 <div class="col-6">
                     <label class="form-label">Tour:</label>
-                    <Input value={formState.tour} onChange={e =>
+                    <input value={formState.tour} onChange={e =>
                             SetFormState({
                                 ...formState, tour: e.target.value
                             }

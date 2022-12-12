@@ -24,17 +24,17 @@ const typeDefs = gql`
  }
 
  type Viaje{
-    id:ID!
-    nombre:String!
-    descripcion:String!
-    foto:String!
+    id: ID!
+    nombre: String!
+    descripcion: String!
+    foto: String!
  }
 
  type Lugar{
-    id:ID!
-    nombre:String!
-    descripcion:String!
-    foto:String!
+    id: ID!
+    nombre: String!
+    descripcion: String!
+    foto: String!
  }
 
  type Alert{
@@ -49,22 +49,22 @@ const typeDefs = gql`
     fecha: String!
  }
  input Viajeinput{
-    nombre:String!
-    descripcion:String!
-    foto:String!
+    nombre: String!
+    descripcion: String!
+    foto: String!
  }
 
  input Lugarinput{
-    nombre:String!
-    descripcion:String!
-    foto:String!
+    nombre: String!
+    descripcion: String!
+    foto: String!
  }
 
  type Query{
    getReservas: [Reserva] 
    getReserva(id: ID!): Reserva
-   getLugares:[Viaje]
-   getViajes:[Lugar]
+   getLugares: [Viaje]
+   getViajes: [Lugar]
  }
 
  type Mutation{
@@ -86,6 +86,14 @@ const resolvers = {
         async getReserva(obj, { id }) {
             const reservas = await Reserva.findById(id);
             return reservas;
+        },
+        async getLugares(obj) {
+            const lugares = await Lugar.find();
+            return lugares;
+        },
+        async getViajes(obj) {
+            const viajes = await Viaje.find();
+            return viajes;
         }
     },
     Mutation: {

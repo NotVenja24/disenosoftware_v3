@@ -1,9 +1,8 @@
 import React from "react";
-import  magallanes from './Magallanes.jpg'
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
 import Figure from 'react-bootstrap/Figure';
 import equipo from './mocking/equipo';
-import Perfiles from './card'
+import Perfiles from './card';
 
 function Nosotros() {
   
