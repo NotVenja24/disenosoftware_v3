@@ -13,16 +13,34 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:8090/graphql',
+  cache: new InMemoryCache(),
+});
+
+client.query({
+  query: gql`
+    query getReservas {
+      getReservas {
+        id
+        fecha
+        nombre_viaje 
+      }
+    }
+  `
+}).then((result) => console.log(result));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
 
-  <React.StrictMode>
+  <ApolloProvider>
     <BrowserRouter>
         <App />
     </BrowserRouter>,
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById("root")
 );
 

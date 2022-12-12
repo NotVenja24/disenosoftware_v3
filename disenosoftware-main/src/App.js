@@ -12,7 +12,27 @@ import Nosotros from './components/about';
 import ContactForm from './components/contact_form';
 
 // Routes es igual a Switch component en los demás tutoriales
+import { useQuery, gql } from '@apollo/client';
+const GET_RESERVAS = gql`
+  query getReservas{
+    getReservas{
+      nombre: String!
+      rut: String!
+      tour: String!
+      telefono: String!
+      fecha: String!
+    }
+  }
+`;
 
+/*function MostrarReservas() {
+  const { loading, error, data } = useQuery(GET_RESERVAS);
+  if (loading) return (<p>Loading...</p>);
+  if (error) return (<p>Error</p>)
+  return data.getReservas.map(({ id, fecha, nombre_viaje }) =>
+    <li key={id}>{fecha}</li>
+  )
+}*/
 class App extends React.Component {
     render(){
       return (
@@ -47,7 +67,10 @@ class App extends React.Component {
                 <ContactForm></ContactForm>
               </div>
               <Footer />
-              
+            
+              <div>
+                <MostrarReservas></MostrarReservas>
+              </div>
           </Router>
           
       </>

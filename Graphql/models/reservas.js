@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
 const reservaSchema = new mongoose.Schema({
-    fecha: Date,
-    nombre_viaje: String
+    nombre: String,
+    rut: String,
+    tour: String,
+    telefono: String,
+    fecha: String
 });
 
 module.exports = mongoose.model('reserva', reservaSchema);

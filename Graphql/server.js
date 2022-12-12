@@ -6,69 +6,76 @@ const cors = require('cors');
 //const {makeExectuableSchema} = require('graphql-tools');
 
 const { merge } = require('lodash');
-const { ApolloServer, gql } = require('apollo-server-express')
+const { ApolloServer, gql } = require('apollo-server-express');
 
 const Reserva = require('./models/reservas');
 
 mongoose.connect('mongodb+srv://hansbarnert:1234@uai.prktf.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const typeDefs = gql`
+
  type Reserva{
     id: ID!
+    nombre: String!
+    rut: String!
+    tour: String!
+    telefono: String!
     fecha: String!
-    nombre_viaje: String!
  }
 
- type Viaje {
+ type Viaje{
     id:ID!
     nombre:String!
-    descripción:String!
+    descripcion:String!
     foto:String!
  }
 
- type Lugar {
+ type Lugar{
     id:ID!
     nombre:String!
-    descripción:String!
+    descripcion:String!
     foto:String!
  }
 
- type Alert {
+ type Alert{
     message: String
  }
 
- input ReservaInput {
+ input ReservaInput{
+    nombre: String!
+    rut: String!
+    tour: String!
+    telefono: String!
     fecha: String!
-    nombre_viaje: String!
  }
-
- input Viajeinput {
+ input Viajeinput{
     nombre:String!
-    descripción:String!
+    descripcion:String!
     foto:String!
  }
 
- input Lugarinput {
+ input Lugarinput{
     nombre:String!
-    descripción:String!
+    descripcion:String!
     foto:String!
  }
 
- type Query {
+ type Query{
    getReservas: [Reserva] 
    getReserva(id: ID!): Reserva
    getLugares:[Viaje]
    getViajes:[Lugar]
  }
 
- type Mutation {
+ type Mutation{
     addReserva(input: ReservaInput): Reserva
     updateReserva(id: ID!, input: ReservaInput): Reserva
     deleteReserva(id: ID!): Alert
-    addLugar:(input: Lugarinput)
-    addViaje: (input: Viajeinput)
+    addLugar(input: Lugarinput): Lugar
+    addViaje(input: Viajeinput): Viaje
  }
 `;
+
 
 const resolvers = {
     Query: {
@@ -79,14 +86,6 @@ const resolvers = {
         async getReserva(obj, { id }) {
             const reservas = await Reserva.findById(id);
             return reservas;
-        },
-        async getLugares(obj) {
-            const lugares = await Lugar.find();
-            return lugares;
-        },
-        async getViajes(obj) {
-            const viajes = await Viaje.find();
-            return viajes;
         }
     },
     Mutation: {
@@ -140,6 +139,4 @@ const app = express(); // levantar la web
 app.use(cors()); // ejecutar las "validaciones de seguridad"
 app.listen(8090, function () {
     console.log("Servidor iniciado")
-})
-
-
+});

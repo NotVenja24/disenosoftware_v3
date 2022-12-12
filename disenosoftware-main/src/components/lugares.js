@@ -14,7 +14,7 @@ function lugares() {
             {
               imagenes.map(obj=>{
                 return(
-                  <div className='col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
+                  <div className='col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4'>
                     <center><Tarjeta Name={obj.nombre} Corp={obj.cuerpo} Imagen={obj.imagen}></Tarjeta></center>
                   </div>
                 );

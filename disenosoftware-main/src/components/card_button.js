@@ -12,7 +12,7 @@ class Tarjeta extends React.Component {
           <Card.Text style={{textAlign:'justify'}}>
             {this.props.Corp}
           </Card.Text>
-          <center><Button variant="outline-success" href='/form' style={{width:'vw',height:'vw'}}>Reservar</Button></center>
+          <center><Button variant="outline-success" href='/form' >Reservar</Button></center>
         </Card.Body>
       </Card>
       );
